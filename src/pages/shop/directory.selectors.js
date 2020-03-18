@@ -1,8 +1,14 @@
-import { createSelector } from 'reselect';
+import React from 'react';
+import { Route } from 'react-router-dom';
 
-const selectDirectory = state => state.directory;
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
+import CollectionPage from '../collection/collection.component';
 
-export const selectDirectorySections = createSelector(
-  [selectDirectory],
-  directory => directory.sections
+const ShopPage = ({ match }) => (
+  <div className='shop-page'>
+    <Route exact path={`${match.path}`} component={CollectionsOverview} />
+    <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
+  </div>
 );
+
+export default ShopPage;
