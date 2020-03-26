@@ -1,4 +1,3 @@
-
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
@@ -26,13 +25,14 @@ const config = {
         if (!snapShot.exists) {
           const { displayName, email } = userAuth;
           const createdAt = new Date();
+
           try {
             await userRef.set({
               displayName,
               email,
               createdAt,
               ...additionalData
-            });
+            })
           } catch (error) {
             console.log('error creating user', error.message);
           }
@@ -41,10 +41,8 @@ const config = {
         return userRef;
       };
 
-      export const addCollectionAndDocuments = async (
-        collectionKey,
-        objectsToAdd
-      ) => {
+
+      export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
         const collectionRef = firestore.collection(collectionKey);
       
         const batch = firestore.batch();
@@ -56,23 +54,7 @@ const config = {
         return await batch.commit();
       };
 
-      // const convertCollectionsSnapshotToMaps =(collections) => {
-      //   const transformedCollection = collections.docs.map(doc => {
-      //     const { title, items } = doc.data();
-        
-      //   return {
-      //     routeName: encodeURI(title.toLowerCase),
-      //     id: doc.id,
-      //     title,
-      //     items
-      //   }
-        
-      //   }
-
-      //   )
-      // }
-
-      
+    
       export const auth = firebase.auth();
       export const firestore = firebase.firestore();
       
@@ -82,3 +64,9 @@ const config = {
       
       export default firebase;
 
+
+
+
+
+
+      
