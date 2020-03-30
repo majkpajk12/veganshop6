@@ -39,6 +39,7 @@ this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
 render() {
   const { match } = this.props;
   const { loading } = this.state;
+  
   return (
     <div className='shop-page'>
       <Route
@@ -65,6 +66,6 @@ updateCollections: collectionsMap =>
 });
 
 export default connect(
-null,
-mapDispatchToProps
+  null,
+  mapDispatchToProps
 )(ShopPage);
