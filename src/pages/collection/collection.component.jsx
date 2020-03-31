@@ -1,4 +1,3 @@
-  
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -11,6 +10,7 @@ import {
   CollectionTitle,
   CollectionItemsContainer
 } from './collection.styles';
+
 const CollectionPage = ({ collection }) => {
   const { title, items } = collection;
   return (
